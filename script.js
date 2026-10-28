@@ -1,6 +1,6 @@
 /**
  * JEEVIRAJ V PORTFOLIO — INTERACTIVE SCRIPTS
- * Spotlight & Octocat Minimalist Template (Screenshots 2026-10-28 102858.png & 2026-10-27 221830.png)
+ * Spotlight & Octocat Minimalist Template with User Photo Default & Red Theme
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -34,34 +34,34 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Toggle between Octocat Mascot and User Photo
+  // Toggle between Photo and Mascot (Photo is default)
   function setCardView(view) {
-    if (view === 'mascot') {
-      mascotView.classList.add('active');
-      portraitView.classList.remove('active');
-      toggleMascot.classList.add('active');
-      togglePhoto.classList.remove('active');
-    } else {
+    if (view === 'photo') {
       portraitView.classList.add('active');
       mascotView.classList.remove('active');
       togglePhoto.classList.add('active');
       toggleMascot.classList.remove('active');
+    } else {
+      mascotView.classList.add('active');
+      portraitView.classList.remove('active');
+      toggleMascot.classList.add('active');
+      togglePhoto.classList.remove('active');
     }
   }
 
   if (cardToggleBtn) {
     cardToggleBtn.addEventListener('click', (e) => {
       e.stopPropagation();
-      const isMascot = mascotView.classList.contains('active');
-      setCardView(isMascot ? 'photo' : 'mascot');
+      const isPhoto = portraitView.classList.contains('active');
+      setCardView(isPhoto ? 'mascot' : 'photo');
     });
   }
 
   if (hangingCard) {
     hangingCard.addEventListener('click', (e) => {
       if (e.target.closest('#cardToggleBtn')) return;
-      const isMascot = mascotView.classList.contains('active');
-      setCardView(isMascot ? 'photo' : 'mascot');
+      const isPhoto = portraitView.classList.contains('active');
+      setCardView(isPhoto ? 'mascot' : 'photo');
     });
   }
 
