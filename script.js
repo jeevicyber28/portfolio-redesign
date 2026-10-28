@@ -1,6 +1,6 @@
 /**
  * JEEVIRAJ V PORTFOLIO — INTERACTIVE SCRIPTS
- * Template Redesign matching Screenshot 2026-10-27 221830.png
+ * Spotlight & Octocat Minimalist Template (Screenshots 2026-10-28 102858.png & 2026-10-27 221830.png)
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -25,7 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const cardCenterX = rect.left + rect.width / 2;
       const mouseDeltaX = (e.clientX - cardCenterX) / window.innerWidth;
       
-      // Calculate realistic subtle sway angle
       const dynamicTilt = baseAngle + (mouseDeltaX * 12);
       hangingCard.style.transform = `rotate(${dynamicTilt.toFixed(2)}deg)`;
     });
@@ -58,10 +57,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Also clicking the card body flips between views
   if (hangingCard) {
     hangingCard.addEventListener('click', (e) => {
-      // Don't toggle if clicking the pill directly (avoid double fire)
       if (e.target.closest('#cardToggleBtn')) return;
       const isMascot = mascotView.classList.contains('active');
       setCardView(isMascot ? 'photo' : 'mascot');
@@ -80,7 +77,6 @@ document.addEventListener('DOMContentLoaded', () => {
       navMenu.classList.toggle('open');
     });
 
-    // Close mobile nav when clicking any link
     navMenu.querySelectorAll('.nav-link').forEach(link => {
       link.addEventListener('click', () => {
         navMenu.classList.remove('open');
