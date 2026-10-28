@@ -1180,6 +1180,24 @@ button {
   border-left: 4px solid var(--red-accent);
 }
 
+.trophy-item.second-place {
+  border-left: 4px solid #94a3b8;
+}
+
+.trophy-item.top-ten {
+  border-left: 4px solid #f59e0b;
+}
+
+.trophy-item.ranked {
+  border-left: 4px solid rgba(239, 68, 68, 0.45);
+}
+
+.trophy-item.featured-trophy {
+  grid-column: span 2;
+  border-color: rgba(239, 68, 68, 0.35);
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.04) 0%, rgba(255, 255, 255, 0.02) 100%);
+}
+
 .trophy-icon-box.red-icon-box {
   width: 48px;
   height: 48px;
@@ -1208,16 +1226,136 @@ button {
 }
 
 .trophy-name {
-  font-size: 1.15rem;
+  font-size: 1.18rem;
   font-weight: 700;
   color: var(--text-main);
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 
 .trophy-desc {
   font-size: 0.88rem;
   color: var(--text-body);
-  line-height: 1.5;
+  line-height: 1.55;
+}
+
+.trophy-meta-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.trophy-pill {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 9999px;
+  background: var(--bg-hover);
+  color: var(--text-muted);
+  border: 1px solid var(--border-subtle);
+}
+
+.trophy-pill.pill-accent {
+  background: var(--red-subtle);
+  color: var(--red-accent);
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.trophy-media-preview {
+  margin-top: 14px;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  background: #0f172a;
+  cursor: pointer;
+  max-height: 240px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+}
+
+.trophy-media-preview img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+  transition: transform 0.35s ease, filter 0.35s ease;
+}
+
+.trophy-media-preview:hover img {
+  transform: scale(1.025);
+  filter: brightness(1.05);
+}
+
+.trophy-media-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(15, 23, 42, 0.85) 0%, rgba(15, 23, 42, 0.15) 60%, transparent 100%);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 12px 16px;
+  pointer-events: none;
+}
+
+.trophy-media-caption {
+  color: #f1f5f9;
+  font-size: 0.82rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.trophy-media-zoom-btn {
+  background: rgba(239, 68, 68, 0.9);
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  padding: 4px 10px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  letter-spacing: 0.4px;
+}
+
+.trophy-links-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.trophy-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--red-accent);
+  padding: 5px 12px;
+  background: var(--red-subtle);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  border-radius: 8px;
+  transition: var(--transition);
+  text-decoration: none;
+}
+
+.trophy-link:hover {
+  background: var(--red-accent);
+  color: #ffffff;
+  border-color: var(--red-accent);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 900px) {
+  .trophy-item.featured-trophy {
+    grid-column: span 1;
+  }
 }
 
 /* --------------------------------------------------------------------------
