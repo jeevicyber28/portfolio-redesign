@@ -128,7 +128,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const title = (item.dataset.title || '').toLowerCase();
       const issuer = (item.dataset.issuer || '').toLowerCase();
 
-      const matchesCat = (filter === 'all' || cat === filter);
+      const cats = cat.split(/\s+/);
+      const matchesCat = (filter === 'all' || cats.includes(filter) || cat === filter);
       const matchesQuery = (query === '' || title.includes(query) || issuer.includes(query));
 
       if (matchesCat && matchesQuery) {
@@ -153,24 +154,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // ------------------------------------------------------------------------
-  // 5. LIGHTBOX MODAL FOR CERTIFICATES
+  // 5. LIGHTBOX MODAL FOR CERTIFICATES & TROPHY PREVIEWS
   // ------------------------------------------------------------------------
   const lightboxModal = document.getElementById('lightboxModal');
   const lightboxImage = document.getElementById('lightboxImage');
   const lightboxTitle = document.getElementById('lightboxTitle');
   const lightboxCloseBtn = document.getElementById('lightboxCloseBtn');
 
+  function openLightbox(fullSrc, title) {
+    if (lightboxImage && fullSrc) {
+      lightboxImage.src = fullSrc;
+      lightboxTitle.textContent = title || 'Preview';
+      lightboxModal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
   document.querySelectorAll('.cert-item').forEach(item => {
     item.addEventListener('click', () => {
-      const fullSrc = item.dataset.full;
-      const title = item.dataset.title || 'Certificate Preview';
+      openLightbox(item.dataset.full, item.dataset.title);
+    });
+  });
 
-      if (lightboxImage && fullSrc) {
-        lightboxImage.src = fullSrc;
-        lightboxTitle.textContent = title;
-        lightboxModal.classList.add('open');
-        document.body.style.overflow = 'hidden';
-      }
+  document.querySelectorAll('[data-lightbox-img]').forEach(el => {
+    el.addEventListener('click', (e) => {
+      e.preventDefault();
+      openLightbox(el.dataset.lightboxImg, el.dataset.lightboxTitle);
     });
   });
 
