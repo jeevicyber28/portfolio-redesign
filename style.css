@@ -1,9 +1,10 @@
 /* ==========================================================================
-   JEEVIRAJ V — MODERN PORTFOLIO (OCTOCAT / MINIMALIST TEMPLATE REDESIGN)
+   JEEVIRAJ V — MODERN SPOTLIGHT & OCTOCAT TEMPLATE REDESIGN
+   Combined from Screenshots: 2026-10-28 102858.png & 2026-10-27 221830.png
    ========================================================================== */
 
 :root {
-  --bg-page: #0F1117;
+  --bg-page: #0B0E14;
   --bg-window: #FAFAFA;
   --bg-surface: #FFFFFF;
   --bg-subtle: #F3F4F6;
@@ -17,6 +18,7 @@
   --text-muted: #6B7280;
   --text-light: #9CA3AF;
   
+  --red-banner: #E6253B;
   --red-accent: #EF4444;
   --red-hover: #DC2626;
   --red-subtle: #FEE2E2;
@@ -84,7 +86,7 @@ button {
   background-color: var(--bg-window);
   border-radius: var(--radius-xl);
   overflow: hidden;
-  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 30px 70px -15px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.12);
   display: flex;
   flex-direction: column;
   position: relative;
@@ -151,10 +153,10 @@ button {
 }
 
 /* --------------------------------------------------------------------------
-   NAVBAR (Clean minimal bar with "Hire me" button)
+   NAVBAR (Clean minimal bar with "Hire me" button matching Screenshots)
    -------------------------------------------------------------------------- */
 .navbar {
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.98);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border-subtle);
   position: sticky;
@@ -187,7 +189,7 @@ button {
 .nav-menu {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 28px;
 }
 
 .nav-link {
@@ -273,7 +275,184 @@ button {
 }
 
 /* --------------------------------------------------------------------------
-   HERO SECTION (High-Fidelity Match to Screenshot 2026-10-27 221830.png)
+   1. SPOTLIGHT HERO SECTION (EXACT MATCH TO SCREENSHOT 2026-10-28 102858.png)
+   Red banner with curved bottom wave, white typography, mascot & floating pill
+   -------------------------------------------------------------------------- */
+.spotlight-hero {
+  position: relative;
+  background: #FFFFFF;
+}
+
+.spotlight-banner {
+  background: linear-gradient(135deg, #E62238 0%, #D8132B 55%, #BD1025 100%);
+  position: relative;
+  padding: 60px 48px 100px;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+  gap: 30px;
+  overflow: hidden;
+}
+
+.spotlight-content {
+  position: relative;
+  z-index: 5;
+  color: #FFFFFF;
+}
+
+.spotlight-title {
+  font-size: clamp(2.5rem, 5vw, 3.8rem);
+  font-weight: 900;
+  letter-spacing: -1.8px;
+  line-height: 1.08;
+  color: #FFFFFF;
+  margin-bottom: 16px;
+}
+
+.spotlight-title .highlight-name {
+  color: #FFFFFF;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.spotlight-role {
+  display: block;
+  font-weight: 700;
+  font-size: clamp(1.4rem, 2.8vw, 2.1rem);
+  letter-spacing: -0.8px;
+  color: rgba(255, 255, 255, 0.94);
+  margin-top: 4px;
+}
+
+.spotlight-tagline {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.92);
+  line-height: 1.6;
+  max-width: 500px;
+  margin-bottom: 28px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.spotlight-cta-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.btn-white-pill {
+  background: #FFFFFF;
+  color: #18181B;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 12px 28px;
+  border-radius: var(--radius-full);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  transition: var(--transition);
+}
+
+.btn-white-pill:hover {
+  background: #F4F4F5;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.btn-outline-pill {
+  background: rgba(255, 255, 255, 0.12);
+  color: #FFFFFF;
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 11px 26px;
+  border-radius: var(--radius-full);
+  backdrop-filter: blur(8px);
+  transition: var(--transition);
+}
+
+.btn-outline-pill:hover {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: #FFFFFF;
+  transform: translateY(-2px);
+}
+
+/* Mascot Showcase on the right */
+.spotlight-mascot-box {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mascot-avatar-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.octocat-hero-svg {
+  width: 270px;
+  height: 270px;
+  filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.35));
+  animation: mascotFloat 4s ease-in-out infinite alternate;
+}
+
+@keyframes mascotFloat {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-8px); }
+}
+
+/* Floating Dark Pill: "↗ Preview experience" */
+.floating-preview-pill {
+  position: absolute;
+  bottom: 12px;
+  background: rgba(24, 24, 27, 0.88);
+  backdrop-filter: blur(12px);
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 10px 22px;
+  border-radius: var(--radius-full);
+  font-size: 0.88rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+  transition: var(--transition);
+  cursor: pointer;
+  z-index: 10;
+}
+
+.floating-preview-pill:hover {
+  background: #18181B;
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Bottom Wave SVG */
+.banner-bottom-wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  overflow: hidden;
+  line-height: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.banner-bottom-wave svg {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 60px;
+}
+
+/* --------------------------------------------------------------------------
+   2. ABOUT SECTION (EXACT MATCH TO SCREENSHOT 2026-10-27 221830.png)
+   HELLO! tag, A little about me, skill pills, meta bar & HANGING CARD!
    -------------------------------------------------------------------------- */
 .hero-section {
   padding: 60px 48px 50px;
@@ -295,7 +474,6 @@ button {
   flex-direction: column;
 }
 
-/* "HELLO!" in bold red uppercase */
 .hero-badge-tag {
   color: var(--red-accent);
   font-size: 0.86rem;
@@ -305,17 +483,15 @@ button {
   margin-bottom: 14px;
 }
 
-/* "A little about me" Headline */
 .hero-heading {
-  font-size: clamp(2.6rem, 4.8vw, 3.8rem);
+  font-size: clamp(2.4rem, 4.4vw, 3.4rem);
   font-weight: 900;
-  letter-spacing: -1.8px;
-  line-height: 1.08;
+  letter-spacing: -1.6px;
+  line-height: 1.1;
   color: var(--text-main);
   margin-bottom: 14px;
 }
 
-/* Subtitle Tagline */
 .hero-subheading {
   font-size: 1.12rem;
   color: var(--text-body);
@@ -324,7 +500,7 @@ button {
   margin-bottom: 26px;
 }
 
-/* Soft Skill Pills Row (Identical to Screenshot pills) */
+/* Soft Skill Pills Row (Screenshot Style) */
 .skill-pills-row {
   display: flex;
   flex-wrap: wrap;
@@ -352,7 +528,7 @@ button {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
 }
 
-/* Meta / Social Stats Strip (Location, Github, Followers, Stars style) */
+/* Meta Stats Strip */
 .hero-meta-bar {
   display: flex;
   flex-wrap: wrap;
@@ -453,14 +629,14 @@ button {
 }
 
 /* --------------------------------------------------------------------------
-   THE SIGNATURE HANGING CARD (Right Column of Hero)
+   THE SIGNATURE HANGING CARD (Screenshot 2026-10-27 221830.png)
    -------------------------------------------------------------------------- */
 .hero-right {
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
-  padding: 30px 10px 40px;
+  padding: 20px 10px 30px;
 }
 
 .hanging-card-wrapper {
@@ -471,17 +647,15 @@ button {
   perspective: 1000px;
 }
 
-/* Realistic Cord / String hanging from top */
 .hanging-cord {
   width: 2px;
-  height: 55px;
+  height: 50px;
   background: linear-gradient(to bottom, #71717A, #3F3F46);
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
   position: relative;
   z-index: 2;
 }
 
-/* Metallic Eyelet Ring Pin */
 .eyelet-ring {
   width: 22px;
   height: 22px;
@@ -506,7 +680,6 @@ button {
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.8);
 }
 
-/* The Vibrant Red Hanging Card */
 .red-hanging-card {
   width: 290px;
   min-height: 360px;
@@ -537,7 +710,6 @@ button {
     0 16px 30px -6px rgba(0, 0, 0, 0.22);
 }
 
-/* Inside Badge Views (Mascot vs Portrait) */
 .badge-card-view {
   display: none;
   flex-direction: column;
@@ -555,7 +727,6 @@ button {
   to { opacity: 1; transform: scale(1); }
 }
 
-/* Octocat Art Box */
 .octocat-art-box {
   width: 180px;
   height: 180px;
@@ -570,7 +741,6 @@ button {
   height: 100%;
 }
 
-/* Portrait Photo Box */
 .portrait-photo-box {
   width: 170px;
   height: 190px;
@@ -589,7 +759,6 @@ button {
   display: block;
 }
 
-/* Card Caption */
 .card-caption {
   text-align: center;
   color: #FFFFFF;
@@ -613,7 +782,6 @@ button {
   letter-spacing: 0.4px;
 }
 
-/* Switcher Pill inside Hanging Card */
 .card-toggle-pill {
   margin-top: 14px;
   background: rgba(0, 0, 0, 0.25);
@@ -1321,6 +1489,59 @@ button {
 }
 
 /* --------------------------------------------------------------------------
+   SPOTLIGHT PRO BOTTOM BAR (Matching Screenshot 2026-10-28 102858.png)
+   -------------------------------------------------------------------------- */
+.spotlight-footer-bar {
+  background: #11141B;
+  border-top: 1px solid #1F2430;
+  padding: 16px 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.spotlight-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.spotlight-logo-text {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  letter-spacing: -0.5px;
+}
+
+.spotlight-pro-badge {
+  background: #272B35;
+  color: #9CA3AF;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 6px;
+  font-family: var(--font-mono);
+}
+
+.spotlight-tag-pills {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tag-pill {
+  background: #1F2430;
+  color: #D1D5DB;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 6px 16px;
+  border-radius: var(--radius-full);
+  border: 1px solid #2B3140;
+}
+
+/* --------------------------------------------------------------------------
    WINDOW FOOTER
    -------------------------------------------------------------------------- */
 .window-footer {
@@ -1480,6 +1701,16 @@ button {
     padding: 10px;
   }
 
+  .spotlight-banner {
+    grid-template-columns: 1fr;
+    padding: 40px 24px 80px;
+    gap: 36px;
+  }
+
+  .spotlight-mascot-box {
+    order: -1;
+  }
+
   .hero-grid {
     grid-template-columns: 1fr;
     gap: 40px;
@@ -1532,19 +1763,30 @@ button {
     display: flex;
   }
 
+  .spotlight-banner {
+    padding: 35px 20px 70px;
+  }
+
+  .octocat-hero-svg {
+    width: 200px;
+    height: 200px;
+  }
+
   .hero-section {
-    padding: 40px 24px;
+    padding: 40px 20px;
   }
 
   .section-block {
-    padding: 50px 24px;
+    padding: 50px 20px;
   }
 
   .contact-grid {
     grid-template-columns: 1fr;
   }
 
-  .window-titlebar {
-    padding: 10px 14px;
+  .spotlight-footer-bar {
+    padding: 16px 20px;
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
