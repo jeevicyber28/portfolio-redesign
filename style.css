@@ -1,13 +1,13 @@
 /* ==========================================================================
    JEEVIRAJ V — MODERN SPOTLIGHT & OCTOCAT TEMPLATE REDESIGN
-   Combined from Screenshots: 2026-10-28 102858.png & 2026-10-27 221830.png
+   With Custom Red Aesthetics & Jeeviraj's Portrait Integration
    ========================================================================== */
 
 :root {
   --bg-page: #0B0E14;
   --bg-window: #FAFAFA;
   --bg-surface: #FFFFFF;
-  --bg-subtle: #F3F4F6;
+  --bg-subtle: #F9FAFB;
   --bg-card: #FFFFFF;
   
   --border-subtle: #E5E7EB;
@@ -23,6 +23,7 @@
   --red-hover: #DC2626;
   --red-subtle: #FEE2E2;
   --red-glow: rgba(239, 68, 68, 0.35);
+  --red-dim: rgba(239, 68, 68, 0.1);
   
   --dark-btn: #18181B;
   --dark-btn-hover: #27272A;
@@ -39,6 +40,7 @@
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
   --shadow-card: 0 4px 20px -4px rgba(0, 0, 0, 0.06), 0 2px 6px -1px rgba(0, 0, 0, 0.03);
   --shadow-hover: 0 12px 30px -6px rgba(0, 0, 0, 0.12), 0 4px 10px -2px rgba(0, 0, 0, 0.05);
+  --shadow-red-hover: 0 16px 36px -8px rgba(239, 68, 68, 0.22), 0 4px 12px rgba(0, 0, 0, 0.05);
   
   --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -77,8 +79,13 @@ button {
   background: none;
 }
 
+/* Red Text Utilities */
+.text-red-accent {
+  color: var(--red-accent) !important;
+}
+
 /* --------------------------------------------------------------------------
-   WINDOW CONTAINER (App-like MacOS Frame matching Screenshot)
+   WINDOW CONTAINER
    -------------------------------------------------------------------------- */
 .window-container {
   width: 100%;
@@ -92,7 +99,7 @@ button {
   position: relative;
 }
 
-/* Window Titlebar with Mac Traffic Light Controls */
+/* Titlebar */
 .window-titlebar {
   background: #18181B;
   color: #9CA3AF;
@@ -153,7 +160,7 @@ button {
 }
 
 /* --------------------------------------------------------------------------
-   NAVBAR (Clean minimal bar with "Hire me" button matching Screenshots)
+   NAVBAR
    -------------------------------------------------------------------------- */
 .navbar {
   background: rgba(255, 255, 255, 0.98);
@@ -202,7 +209,7 @@ button {
 }
 
 .nav-link:hover, .nav-link.active {
-  color: var(--text-main);
+  color: var(--red-accent);
 }
 
 .nav-link.active::after {
@@ -212,7 +219,7 @@ button {
   left: 0;
   width: 100%;
   height: 2px;
-  background-color: var(--text-main);
+  background-color: var(--red-accent);
   border-radius: 2px;
 }
 
@@ -237,8 +244,8 @@ button {
 }
 
 .btn-ghost-resume:hover {
-  border-color: var(--text-main);
-  color: var(--text-main);
+  border-color: var(--red-accent);
+  color: var(--red-accent);
   transform: translateY(-1px);
 }
 
@@ -254,9 +261,9 @@ button {
 }
 
 .btn-hire-me:hover {
-  background-color: var(--dark-btn-hover);
+  background-color: var(--red-accent);
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(24, 24, 27, 0.35);
+  box-shadow: 0 6px 18px var(--red-glow);
 }
 
 .mobile-toggle {
@@ -275,8 +282,7 @@ button {
 }
 
 /* --------------------------------------------------------------------------
-   1. SPOTLIGHT HERO SECTION (EXACT MATCH TO SCREENSHOT 2026-10-28 102858.png)
-   Red banner with curved bottom wave, white typography, mascot & floating pill
+   1. SPOTLIGHT HERO SECTION (JEEVIRAJ PHOTO FIXED PROMINENTLY)
    -------------------------------------------------------------------------- */
 .spotlight-hero {
   position: relative;
@@ -284,13 +290,13 @@ button {
 }
 
 .spotlight-banner {
-  background: linear-gradient(135deg, #E62238 0%, #D8132B 55%, #BD1025 100%);
+  background: linear-gradient(135deg, #EF4444 0%, #DC2626 40%, #B91C1C 100%);
   position: relative;
-  padding: 60px 48px 100px;
+  padding: 65px 48px 105px;
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
   align-items: center;
-  gap: 30px;
+  gap: 36px;
   overflow: hidden;
 }
 
@@ -298,6 +304,31 @@ button {
   position: relative;
   z-index: 5;
   color: #FFFFFF;
+}
+
+.spotlight-badge-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 5px 14px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #FFFFFF;
+  margin-bottom: 16px;
+}
+
+.tag-ping-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  box-shadow: 0 0 10px #FFFFFF;
+  animation: pulse-ring 1.8s infinite;
 }
 
 .spotlight-title {
@@ -311,7 +342,7 @@ button {
 
 .spotlight-title .highlight-name {
   color: #FFFFFF;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
 }
 
 .spotlight-role {
@@ -319,13 +350,13 @@ button {
   font-weight: 700;
   font-size: clamp(1.4rem, 2.8vw, 2.1rem);
   letter-spacing: -0.8px;
-  color: rgba(255, 255, 255, 0.94);
+  color: rgba(255, 255, 255, 0.95);
   margin-top: 4px;
 }
 
 .spotlight-tagline {
   font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.92);
+  color: rgba(255, 255, 255, 0.94);
   line-height: 1.6;
   max-width: 500px;
   margin-bottom: 28px;
@@ -359,7 +390,7 @@ button {
 .btn-outline-pill {
   background: rgba(255, 255, 255, 0.12);
   color: #FFFFFF;
-  border: 1.5px solid rgba(255, 255, 255, 0.5);
+  border: 1.5px solid rgba(255, 255, 255, 0.55);
   font-weight: 600;
   font-size: 0.95rem;
   padding: 11px 26px;
@@ -374,7 +405,7 @@ button {
   transform: translateY(-2px);
 }
 
-/* Mascot Showcase on the right */
+/* User's Portrait Box in Spotlight Hero */
 .spotlight-mascot-box {
   position: relative;
   z-index: 5;
@@ -390,26 +421,58 @@ button {
   align-items: center;
 }
 
-.octocat-hero-svg {
-  width: 270px;
-  height: 270px;
-  filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.35));
-  animation: mascotFloat 4s ease-in-out infinite alternate;
+.spotlight-portrait-frame {
+  width: 250px;
+  height: 290px;
+  border-radius: 28px;
+  overflow: hidden;
+  position: relative;
+  border: 4px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 
+    0 25px 60px -10px rgba(0, 0, 0, 0.45),
+    0 0 35px rgba(255, 255, 255, 0.2);
+  transition: var(--transition);
+  margin-bottom: 12px;
 }
 
-@keyframes mascotFloat {
-  0% { transform: translateY(0px); }
-  100% { transform: translateY(-8px); }
+.spotlight-portrait-frame:hover {
+  transform: scale(1.02);
+  box-shadow: 
+    0 30px 70px -10px rgba(0, 0, 0, 0.55),
+    0 0 45px rgba(255, 255, 255, 0.3);
 }
 
-/* Floating Dark Pill: "↗ Preview experience" */
+.spotlight-profile-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+.spotlight-verified-badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #18181B;
+  border: 2px solid #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Floating Dark Pill */
 .floating-preview-pill {
   position: absolute;
-  bottom: 12px;
-  background: rgba(24, 24, 27, 0.88);
+  bottom: 0px;
+  background: rgba(24, 24, 27, 0.92);
   backdrop-filter: blur(12px);
   color: #FFFFFF;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   padding: 10px 22px;
   border-radius: var(--radius-full);
   font-size: 0.88rem;
@@ -424,13 +487,12 @@ button {
 }
 
 .floating-preview-pill:hover {
-  background: #18181B;
+  background: #DC2626;
+  border-color: #EF4444;
   transform: translateY(-2px) scale(1.03);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
-  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 16px 36px var(--red-glow);
 }
 
-/* Bottom Wave SVG */
 .banner-bottom-wave {
   position: absolute;
   bottom: 0;
@@ -451,8 +513,7 @@ button {
 }
 
 /* --------------------------------------------------------------------------
-   2. ABOUT SECTION (EXACT MATCH TO SCREENSHOT 2026-10-27 221830.png)
-   HELLO! tag, A little about me, skill pills, meta bar & HANGING CARD!
+   2. ABOUT SECTION & HANGING RED CARD
    -------------------------------------------------------------------------- */
 .hero-section {
   padding: 60px 48px 50px;
@@ -500,7 +561,6 @@ button {
   margin-bottom: 26px;
 }
 
-/* Soft Skill Pills Row (Screenshot Style) */
 .skill-pills-row {
   display: flex;
   flex-wrap: wrap;
@@ -521,14 +581,19 @@ button {
   cursor: default;
 }
 
-.pill-badge:hover {
-  border-color: #D1D5DB;
-  color: var(--text-main);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+.pill-badge.pill-red {
+  background: var(--red-subtle);
+  color: var(--red-accent);
+  border-color: #FECACA;
 }
 
-/* Meta Stats Strip */
+.pill-badge:hover {
+  border-color: var(--red-accent);
+  color: var(--red-accent);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.15);
+}
+
 .hero-meta-bar {
   display: flex;
   flex-wrap: wrap;
@@ -546,6 +611,10 @@ button {
   font-weight: 500;
 }
 
+.meta-item.meta-red svg {
+  color: var(--red-accent);
+}
+
 .meta-item svg {
   color: #6B7280;
   flex-shrink: 0;
@@ -557,10 +626,9 @@ button {
 }
 
 .meta-link:hover {
-  color: var(--text-main);
+  color: var(--red-accent);
 }
 
-/* Hero CTA Buttons */
 .hero-buttons {
   display: flex;
   align-items: center;
@@ -583,9 +651,9 @@ button {
 }
 
 .btn-primary-dark:hover {
-  background-color: var(--dark-btn-hover);
+  background-color: var(--red-accent);
   transform: translateY(-2px);
-  box-shadow: 0 8px 22px rgba(24, 24, 27, 0.35);
+  box-shadow: 0 8px 22px var(--red-glow);
 }
 
 .btn-secondary-outline {
@@ -603,8 +671,9 @@ button {
 }
 
 .btn-secondary-outline:hover {
-  border-color: var(--text-main);
-  background: var(--bg-subtle);
+  border-color: var(--red-accent);
+  color: var(--red-accent);
+  background: var(--red-subtle);
   transform: translateY(-2px);
 }
 
@@ -628,9 +697,7 @@ button {
   box-shadow: 0 6px 16px rgba(0, 119, 181, 0.35);
 }
 
-/* --------------------------------------------------------------------------
-   THE SIGNATURE HANGING CARD (Screenshot 2026-10-27 221830.png)
-   -------------------------------------------------------------------------- */
+/* Hanging Card */
 .hero-right {
   display: flex;
   justify-content: center;
@@ -683,14 +750,14 @@ button {
 .red-hanging-card {
   width: 290px;
   min-height: 360px;
-  background: linear-gradient(155deg, #FF3B4E 0%, #E6253B 50%, #C8152B 100%);
+  background: linear-gradient(155deg, #EF4444 0%, #DC2626 50%, #B91C1C 100%);
   border-radius: 26px;
   padding: 32px 24px 22px;
   box-shadow: 
-    0 25px 50px -10px rgba(230, 37, 59, 0.45),
-    0 12px 24px -5px rgba(0, 0, 0, 0.18),
+    0 25px 50px -10px rgba(220, 38, 38, 0.5),
+    0 12px 24px -5px rgba(0, 0, 0, 0.2),
     inset 0 1px 1px rgba(255, 255, 255, 0.35);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   transform: rotate(5.5deg);
   transform-origin: top center;
   transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
@@ -706,8 +773,8 @@ button {
 .red-hanging-card:hover {
   transform: rotate(1deg) translateY(4px) scale(1.02);
   box-shadow: 
-    0 35px 65px -12px rgba(230, 37, 59, 0.55),
-    0 16px 30px -6px rgba(0, 0, 0, 0.22);
+    0 35px 65px -12px rgba(220, 38, 38, 0.65),
+    0 16px 30px -6px rgba(0, 0, 0, 0.25);
 }
 
 .badge-card-view {
@@ -727,6 +794,24 @@ button {
   to { opacity: 1; transform: scale(1); }
 }
 
+.portrait-photo-box {
+  width: 175px;
+  height: 195px;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 3.5px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+  margin-bottom: 8px;
+}
+
+.card-profile-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
 .octocat-art-box {
   width: 180px;
   height: 180px;
@@ -739,24 +824,6 @@ button {
 .octocat-svg {
   width: 100%;
   height: 100%;
-}
-
-.portrait-photo-box {
-  width: 170px;
-  height: 190px;
-  border-radius: 18px;
-  overflow: hidden;
-  border: 3px solid rgba(255, 255, 255, 0.9);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-  margin-bottom: 8px;
-}
-
-.card-profile-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
-  display: block;
 }
 
 .card-caption {
@@ -777,29 +844,29 @@ button {
   display: block;
   font-family: var(--font-mono);
   font-size: 0.72rem;
-  color: rgba(255, 255, 255, 0.88);
+  color: rgba(255, 255, 255, 0.9);
   margin-top: 3px;
   letter-spacing: 0.4px;
 }
 
 .card-toggle-pill {
   margin-top: 14px;
-  background: rgba(0, 0, 0, 0.25);
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(0, 0, 0, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(8px);
-  padding: 4px 12px;
+  padding: 4px 14px;
   border-radius: var(--radius-full);
   display: flex;
   align-items: center;
   gap: 6px;
   font-family: var(--font-mono);
-  font-size: 0.7rem;
-  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.85);
   transition: var(--transition);
 }
 
 .card-toggle-pill:hover {
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.45);
   color: #FFFFFF;
 }
 
@@ -812,6 +879,7 @@ button {
   color: #FFFFFF;
   text-decoration: underline;
   text-underline-offset: 3px;
+  font-weight: 700;
 }
 
 .toggle-divider {
@@ -836,15 +904,19 @@ button {
   max-width: 720px;
 }
 
-.section-tag {
+.section-tag.red-tag {
   display: inline-block;
   font-family: var(--font-mono);
   font-size: 0.78rem;
   font-weight: 700;
   color: var(--red-accent);
+  background: var(--red-subtle);
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
   text-transform: uppercase;
-  letter-spacing: 1.5px;
-  margin-bottom: 8px;
+  letter-spacing: 1.2px;
+  margin-bottom: 10px;
+  border: 1px solid rgba(239, 68, 68, 0.25);
 }
 
 .section-title {
@@ -862,7 +934,7 @@ button {
 }
 
 /* --------------------------------------------------------------------------
-   EXPERTISE SECTION (Clean Minimalist Cards)
+   EXPERTISE SECTION (RED TOUCHES)
    -------------------------------------------------------------------------- */
 .expertise-grid {
   display: grid;
@@ -879,12 +951,13 @@ button {
   transition: var(--transition);
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
-.clean-card:hover {
+.clean-card.red-hover-card:hover {
   transform: translateY(-4px);
-  border-color: var(--border-medium);
-  box-shadow: var(--shadow-hover);
+  border-color: var(--red-accent);
+  box-shadow: var(--shadow-red-hover);
 }
 
 .card-icon-header {
@@ -894,33 +967,27 @@ button {
   margin-bottom: 18px;
 }
 
-.icon-circle {
+.icon-circle.red-tint {
   width: 44px;
   height: 44px;
   border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.icon-circle.red-tint {
   background-color: var(--red-subtle);
   color: var(--red-accent);
+  border: 1px solid rgba(239, 68, 68, 0.2);
 }
 
-.icon-circle.dark-tint {
-  background-color: #F4F4F5;
-  color: var(--dark-btn);
-}
-
-.card-status-badge {
+.card-status-badge.badge-red-outline {
   font-family: var(--font-mono);
   font-size: 0.72rem;
   font-weight: 700;
-  color: var(--text-muted);
+  color: var(--red-accent);
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  background: var(--bg-subtle);
+  background: var(--red-subtle);
+  border: 1px solid rgba(239, 68, 68, 0.25);
   padding: 3px 9px;
   border-radius: 6px;
 }
@@ -954,10 +1021,18 @@ button {
   padding: 3px 8px;
   border-radius: 6px;
   font-weight: 500;
+  border: 1px solid var(--border-subtle);
+}
+
+.card-tags span.tag-red-subtle {
+  background: var(--red-subtle);
+  color: var(--red-accent);
+  border-color: rgba(239, 68, 68, 0.25);
+  font-weight: 600;
 }
 
 /* --------------------------------------------------------------------------
-   PROJECTS SECTION
+   PROJECTS SECTION (RED ACCENTED)
    -------------------------------------------------------------------------- */
 .projects-grid {
   display: grid;
@@ -976,14 +1051,14 @@ button {
   flex-direction: column;
 }
 
-.project-card:hover {
-  transform: translateY(-4px);
-  border-color: #D1D5DB;
-  box-shadow: var(--shadow-hover);
-}
-
 .project-card.highlight-card {
   border-top: 4px solid var(--red-accent);
+}
+
+.project-card.highlight-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--red-accent);
+  box-shadow: var(--shadow-red-hover);
 }
 
 .project-top {
@@ -993,12 +1068,13 @@ button {
   margin-bottom: 14px;
 }
 
-.project-pill {
+.project-pill.pill-red {
   font-family: var(--font-mono);
   font-size: 0.74rem;
   font-weight: 700;
   color: var(--red-accent);
   background: var(--red-subtle);
+  border: 1px solid rgba(239, 68, 68, 0.25);
   padding: 4px 11px;
   border-radius: var(--radius-full);
 }
@@ -1042,9 +1118,9 @@ button {
 }
 
 .project-features li::before {
-  content: "•";
+  content: "▸";
   position: absolute;
-  left: 4px;
+  left: 2px;
   color: var(--red-accent);
   font-weight: bold;
 }
@@ -1066,6 +1142,12 @@ button {
   padding: 4px 10px;
   border-radius: 6px;
   font-weight: 600;
+}
+
+.project-tech-stack span.stack-red {
+  background: var(--red-subtle);
+  color: var(--red-accent);
+  border-color: rgba(239, 68, 68, 0.3);
 }
 
 /* --------------------------------------------------------------------------
@@ -1090,19 +1172,20 @@ button {
 
 .trophy-item:hover {
   transform: translateY(-3px);
-  border-color: var(--border-medium);
-  box-shadow: var(--shadow-hover);
+  border-color: var(--red-accent);
+  box-shadow: var(--shadow-red-hover);
 }
 
 .trophy-item.first-place {
   border-left: 4px solid var(--red-accent);
 }
 
-.trophy-icon-box {
+.trophy-icon-box.red-icon-box {
   width: 48px;
   height: 48px;
   border-radius: 12px;
-  background: var(--bg-subtle);
+  background: var(--red-subtle);
+  border: 1px solid rgba(239, 68, 68, 0.25);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1118,7 +1201,6 @@ button {
   font-family: var(--font-mono);
   font-size: 0.72rem;
   font-weight: 700;
-  color: var(--red-accent);
   text-transform: uppercase;
   letter-spacing: 0.5px;
   display: block;
@@ -1160,8 +1242,8 @@ button {
 
 .edu-card:hover {
   transform: translateY(-3px);
-  border-color: var(--border-medium);
-  box-shadow: var(--shadow-card);
+  border-color: var(--red-accent);
+  box-shadow: var(--shadow-red-hover);
 }
 
 .edu-card.active-degree {
@@ -1198,11 +1280,12 @@ button {
   margin-bottom: 20px;
 }
 
-.edu-grade-pill {
+.edu-grade-pill.grade-pill-red {
   display: inline-flex;
   align-items: baseline;
   gap: 8px;
-  background: var(--bg-subtle);
+  background: var(--red-subtle);
+  border: 1px solid rgba(239, 68, 68, 0.25);
   padding: 8px 14px;
   border-radius: var(--radius-sm);
   width: fit-content;
@@ -1211,7 +1294,6 @@ button {
 .grade-number {
   font-size: 1.25rem;
   font-weight: 800;
-  color: var(--text-main);
 }
 
 .grade-text {
@@ -1221,7 +1303,7 @@ button {
 }
 
 /* --------------------------------------------------------------------------
-   CERTIFICATIONS SECTION
+   CERTIFICATIONS SECTION (RED ACCENTED TABS & BADGES)
    -------------------------------------------------------------------------- */
 .cert-controls {
   display: flex;
@@ -1251,15 +1333,15 @@ button {
 }
 
 .cert-tab-btn:hover {
-  border-color: var(--border-medium);
-  color: var(--text-main);
+  border-color: var(--red-accent);
+  color: var(--red-accent);
 }
 
 .cert-tab-btn.active {
-  background: var(--dark-btn);
+  background: var(--red-accent);
   color: #FFFFFF;
-  border-color: var(--dark-btn);
-  box-shadow: 0 2px 8px rgba(24, 24, 27, 0.2);
+  border-color: var(--red-accent);
+  box-shadow: 0 4px 14px var(--red-glow);
 }
 
 .cert-search-box {
@@ -1275,8 +1357,8 @@ button {
 }
 
 .cert-search-box:focus-within {
-  border-color: var(--dark-btn);
-  box-shadow: 0 0 0 3px rgba(24, 24, 27, 0.08);
+  border-color: var(--red-accent);
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);
 }
 
 .cert-search-box input {
@@ -1307,8 +1389,8 @@ button {
 
 .cert-item:hover {
   transform: translateY(-4px);
-  border-color: #CBD5E1;
-  box-shadow: var(--shadow-hover);
+  border-color: var(--red-accent);
+  box-shadow: var(--shadow-red-hover);
 }
 
 .cert-thumb {
@@ -1334,7 +1416,7 @@ button {
 .cert-hover-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(17, 24, 39, 0.6);
+  background: rgba(17, 24, 39, 0.65);
   backdrop-filter: blur(2px);
   display: flex;
   align-items: center;
@@ -1348,12 +1430,13 @@ button {
 }
 
 .cert-hover-overlay span {
-  background: #FFFFFF;
-  color: var(--text-main);
+  background: var(--red-accent);
+  color: #FFFFFF;
   font-size: 0.8rem;
   font-weight: 700;
   padding: 6px 14px;
   border-radius: var(--radius-full);
+  box-shadow: 0 4px 12px var(--red-glow);
 }
 
 .cert-details {
@@ -1374,9 +1457,9 @@ button {
   margin-bottom: 8px;
 }
 
-.tag-ctf { background: var(--red-subtle); color: var(--red-accent); }
-.tag-internship { background: #FEF3C7; color: #D97706; }
-.tag-course { background: #E0E7FF; color: #4F46E5; }
+.tag-ctf { background: var(--red-subtle); color: var(--red-accent); border: 1px solid rgba(239, 68, 68, 0.25); }
+.tag-internship { background: #FEF3C7; color: #D97706; border: 1px solid rgba(217, 119, 6, 0.25); }
+.tag-course { background: #E0E7FF; color: #4F46E5; border: 1px solid rgba(79, 70, 229, 0.25); }
 
 .cert-item-title {
   font-size: 0.95rem;
@@ -1405,12 +1488,11 @@ button {
 }
 
 .view-link {
-  color: var(--text-main);
   font-weight: 700;
 }
 
 /* --------------------------------------------------------------------------
-   CONTACT SECTION
+   CONTACT SECTION (RED ACCENTED)
    -------------------------------------------------------------------------- */
 .contact-grid {
   display: grid;
@@ -1429,10 +1511,10 @@ button {
   flex-direction: column;
 }
 
-.contact-card:hover {
+.contact-card.red-hover-card:hover {
   transform: translateY(-3px);
-  border-color: var(--border-medium);
-  box-shadow: var(--shadow-card);
+  border-color: var(--red-accent);
+  box-shadow: var(--shadow-red-hover);
 }
 
 .contact-card-top {
@@ -1452,10 +1534,10 @@ button {
 }
 
 .linkedin-box { background: rgba(0, 119, 181, 0.12); color: #0077B5; }
-.red-box { background: var(--red-subtle); color: var(--red-accent); }
+.red-box { background: var(--red-subtle); color: var(--red-accent); border: 1px solid rgba(239, 68, 68, 0.2); }
 .dark-box { background: #F4F4F5; color: var(--dark-btn); }
 
-.contact-action-btn {
+.contact-action-btn.action-red {
   width: 32px;
   height: 32px;
   border-radius: 8px;
@@ -1467,17 +1549,16 @@ button {
   transition: var(--transition);
 }
 
-.contact-action-btn:hover {
-  border-color: var(--text-main);
-  color: var(--text-main);
-  background: var(--bg-subtle);
+.contact-action-btn.action-red:hover {
+  border-color: var(--red-accent);
+  color: var(--red-accent);
+  background: var(--red-subtle);
 }
 
 .contact-label {
   font-family: var(--font-mono);
   font-size: 0.72rem;
   text-transform: uppercase;
-  color: var(--text-muted);
   margin-bottom: 4px;
 }
 
@@ -1489,7 +1570,7 @@ button {
 }
 
 /* --------------------------------------------------------------------------
-   SPOTLIGHT PRO BOTTOM BAR (Matching Screenshot 2026-10-28 102858.png)
+   SPOTLIGHT PRO BOTTOM BAR
    -------------------------------------------------------------------------- */
 .spotlight-footer-bar {
   background: #11141B;
@@ -1515,14 +1596,15 @@ button {
   letter-spacing: -0.5px;
 }
 
-.spotlight-pro-badge {
-  background: #272B35;
-  color: #9CA3AF;
+.spotlight-pro-badge.badge-red-pro {
+  background: var(--red-accent);
+  color: #FFFFFF;
   font-size: 0.72rem;
-  font-weight: 700;
+  font-weight: 800;
   padding: 3px 9px;
   border-radius: 6px;
   font-family: var(--font-mono);
+  box-shadow: 0 2px 8px var(--red-glow);
 }
 
 .spotlight-tag-pills {
@@ -1539,6 +1621,12 @@ button {
   padding: 6px 16px;
   border-radius: var(--radius-full);
   border: 1px solid #2B3140;
+}
+
+.tag-pill.tag-pill-red {
+  color: #FCA5A5;
+  border-color: rgba(239, 68, 68, 0.4);
+  background: rgba(239, 68, 68, 0.12);
 }
 
 /* --------------------------------------------------------------------------
@@ -1574,7 +1662,7 @@ button {
 }
 
 .back-to-top:hover {
-  color: #FFFFFF;
+  color: var(--red-accent);
 }
 
 /* --------------------------------------------------------------------------
@@ -1583,7 +1671,7 @@ button {
 .lightbox-modal {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.85);
+  background: rgba(0, 0, 0, 0.88);
   backdrop-filter: blur(8px);
   z-index: 9999;
   display: none;
@@ -1673,6 +1761,7 @@ button {
   right: 24px;
   background: #18181B;
   color: #FFFFFF;
+  border: 1px solid var(--red-accent);
   font-family: var(--font-mono);
   font-size: 0.82rem;
   padding: 12px 20px;
@@ -1680,7 +1769,7 @@ button {
   display: flex;
   align-items: center;
   gap: 10px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3), 0 0 15px var(--red-glow);
   transform: translateY(80px);
   opacity: 0;
   pointer-events: none;
@@ -1703,7 +1792,7 @@ button {
 
   .spotlight-banner {
     grid-template-columns: 1fr;
-    padding: 40px 24px 80px;
+    padding: 45px 24px 85px;
     gap: 36px;
   }
 
@@ -1764,12 +1853,12 @@ button {
   }
 
   .spotlight-banner {
-    padding: 35px 20px 70px;
+    padding: 35px 20px 75px;
   }
 
-  .octocat-hero-svg {
+  .spotlight-portrait-frame {
     width: 200px;
-    height: 200px;
+    height: 230px;
   }
 
   .hero-section {
